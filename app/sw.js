@@ -12,8 +12,10 @@ const filesToCache = [
   'pages/post2.html',
   'pages/post3.html'
 ];
+//sintax diatas adalah dibuat untuk menampung file yang akan di cache dengan menggunakan sebuah variabel
 
 const staticCacheName = 'pages-cache-v1';
+//nama untuk cache adalah pages-cache-v1
 
 self.addEventListener('install', event => {
   console.log('Attempting to install service worker and cache static assets');
@@ -24,6 +26,8 @@ self.addEventListener('install', event => {
     })
   );
 });
+//dilakukan instal untuk service worket ini, kemudian setelah dinstall file-file yang berada pada variabel
+//ditambahkan ke dalam cache yang ada pada browser
 
 self.addEventListener('activate', event => {
   console.log('Activating new service worker...');
@@ -42,6 +46,8 @@ self.addEventListener('activate', event => {
     })
   );
 });
+//digunakan untuk aktivasi dari service worker yang ada, kemudian file-file cache akan didaftarkan 
+//kedalam browser
 
 self.addEventListener('fetch', event => {
   console.log('Fetch event for ', event.request.url);
@@ -70,6 +76,7 @@ self.addEventListener('fetch', event => {
     })
   );
 });
-
+//digunakan untuk fetching dari url file link yang sudah dicache seblumnya
+//ketika url yang diminta tidak ada maka akan menampilkan halaman 404.html
 
 
